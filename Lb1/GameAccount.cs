@@ -37,15 +37,7 @@ namespace Lb1
                 Console.WriteLine("Match index: " + matchResult.matchIndex);
                 Console.Write("Your opponent: " + matchResult.opName);
                 Console.Write(" | Match Rating: " + matchResult.matchRating);
-                Console.Write(" | You ");
-                if (matchResult._pStatus == Status.Lose)
-                {
-                    Console.Write("Lose");
-                }
-                else
-                {
-                    Console.Write("Win");
-                }
+                Console.Write(matchResult._pStatus == Status.Lose ? "| You Lose" : "| You Win");
                 Console.WriteLine();
             }
             Console.WriteLine("==========================================");
