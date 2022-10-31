@@ -7,18 +7,15 @@ namespace Lb1
     {
         public string UserName { get; }
         private int Rating { set; get; }
-        private int GamesCount { set; get; }
         private List<MatchResult> UserCareer = new List<MatchResult>();
 
         public GameAccount(string userName)
         {
-            this.GamesCount = 0;
             this.UserName = userName;
         }
         public void WinGame(string opponentName, int matchRating)
         {
             Rating += matchRating;
-            GamesCount++;
             UserCareer.Add(new MatchResult(SomeGame.matchIndex, opponentName,matchRating,Status.Win));
         }
         
@@ -26,7 +23,6 @@ namespace Lb1
         {
             Rating -= matchRating;
             if (Rating < 1) Rating = 1;
-            GamesCount++;
             UserCareer.Add(new MatchResult(SomeGame.matchIndex, opponentName,matchRating,Status.Lose));
         }
 
@@ -34,7 +30,7 @@ namespace Lb1
         {
             Console.WriteLine("==========================================");
             Console.WriteLine("Profile of player " + UserName);
-            Console.WriteLine("Count of matches: " + GamesCount);
+            Console.WriteLine("Count of matches: " + UserCareer.Count);
             Console.WriteLine("Rating: " + Rating + "\nMatch List:");
             foreach (var matchResult in UserCareer)
             {
