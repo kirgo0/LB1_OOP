@@ -23,7 +23,7 @@ namespace Lb1
             matchIndex++;
             int matchRating = _random.Next(5,25);
             if (matchRating < 0) throw new Exception("Rating cannot be less then 0");
-            if (_random.Next(0,10) > 5)
+            if (_random.Next(0,10) >= 5)
             {
                 p1.WinGame(p2.UserName,matchRating);
                 p2.LoseGame(p1.UserName,matchRating);
